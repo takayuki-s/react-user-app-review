@@ -1,6 +1,7 @@
 import { VFC, memo } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Login } from "../components/pages/Login";
+import { Page404 } from "../components/pages/Page404";
 import { homeRoutes } from "./HomeRoutes";
 
 export const Router: VFC = memo (() => {
@@ -18,6 +19,9 @@ export const Router: VFC = memo (() => {
           ))}
         </Switch>
       )} />
+      <Route>
+        <Page404 path="*"/>
+      </Route>
     </Switch>
   )
 })
