@@ -3,11 +3,12 @@ import { VFC, memo, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
+  onClick: () => void;
 }
 
 export const PrimaryButton: VFC<Props> = memo((props) => {
-  const { children } = props;
+  const { children, onClick } = props;
   return (
-    <Button bg="teal.400" color="white" _hover={{ opacity: "0.8" }}>ログイン</Button>
+    <Button bg="teal.400" color="white" _hover={{ opacity: "0.8" }} onClick={onClick}>ログイン</Button>
   )
 });
