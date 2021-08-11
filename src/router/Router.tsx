@@ -23,8 +23,8 @@ export const Router: VFC = memo (() => {
           ))}
         </Switch>
       )} />
-      <Route>
-        <Page404 path="*"/>
+      <Route path="*">
+        <Page404 />
       </Route>
     </Switch>
   )
