@@ -1,4 +1,4 @@
-import { Box, Image, Stack, Wrap, WrapItem, Text } from "@chakra-ui/react";
+import { Wrap, WrapItem } from "@chakra-ui/react";
 import { VFC, memo } from "react";
 import { UserCard } from "../organisms/user/UserCard";
 
