@@ -1,8 +1,9 @@
-import { Center, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Spinner, Stack, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react";
+import { Center, Spinner, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react";
 import { useCallback } from "react";
 import { VFC, memo, useEffect } from "react";
 import { useAllUsers } from "../../hooks/useAllUsers";
 import { UserCard } from "../organisms/user/UserCard";
+import { UserDetailModal } from "../organisms/user/UserDetailModal";
 
 export const UserManagement: VFC = memo(() => {
   const {isOpen, onOpen, onClose} = useDisclosure();
@@ -28,33 +29,7 @@ export const UserManagement: VFC = memo(() => {
           ))}
         </Wrap>
       )}
-      <Modal isOpen={isOpen} onClose={onClose} autoFocus={false} motionPreset="slideInBottom">
-        <ModalOverlay />
-        <ModalContent pb={6}>
-          <ModalHeader>ユーザー詳細</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody mx={4}>
-            <Stack spacing={4}>
-              <FormControl>
-                <FormLabel>名前</FormLabel>
-                <Input value="てけ" isReadOnly />
-              </FormControl>
-              <FormControl>
-                <FormLabel>フルネーム</FormLabel>
-                <Input value="てけTECH" isReadOnly />
-              </FormControl>
-              <FormControl>
-                <FormLabel>メール</FormLabel>
-                <Input value="teke@test.com" isReadOnly />
-              </FormControl>
-              <FormControl>
-                <FormLabel>TEL</FormLabel>
-                <Input value="09012345678" isReadOnly />
-              </FormControl>
-            </Stack>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      <UserDetailModal isOpen={isOpen} onClose={onClose}/>
     </>
   );
 });

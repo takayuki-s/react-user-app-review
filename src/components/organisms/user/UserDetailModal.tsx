@@ -1,15 +1,40 @@
-import { Box, Image, Stack, Text } from "@chakra-ui/react";
-import { VFC, memo, ReactNode } from "react";
+import { FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Stack } from "@chakra-ui/react";
+import { VFC, memo } from "react";
 
 type Props = {
-  imageUrl: string;
-  userName: string;
-  fullName: string;
-  onClick: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 };
 
 export const UserDetailModal: VFC<Props> = memo((props) => {
-  const { } = props;
+  const { isOpen, onClose } = props;
   return (
+    <Modal isOpen={isOpen} onClose={onClose} autoFocus={false} motionPreset="slideInBottom">
+    <ModalOverlay />
+    <ModalContent pb={6}>
+      <ModalHeader>ユーザー詳細</ModalHeader>
+      <ModalCloseButton />
+      <ModalBody mx={4}>
+        <Stack spacing={4}>
+          <FormControl>
+            <FormLabel>名前</FormLabel>
+            <Input value="てけ" isReadOnly />
+          </FormControl>
+          <FormControl>
+            <FormLabel>フルネーム</FormLabel>
+            <Input value="てけTECH" isReadOnly />
+          </FormControl>
+          <FormControl>
+            <FormLabel>メール</FormLabel>
+            <Input value="teke@test.com" isReadOnly />
+          </FormControl>
+          <FormControl>
+            <FormLabel>TEL</FormLabel>
+            <Input value="09012345678" isReadOnly />
+          </FormControl>
+        </Stack>
+      </ModalBody>
+    </ModalContent>
+  </Modal>
   )
 });
