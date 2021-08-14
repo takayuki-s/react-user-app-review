@@ -1,15 +1,18 @@
-import { FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Stack } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack } from "@chakra-ui/react";
 import { VFC, memo } from "react";
 import { User } from "../../../types/api/user";
+import { PrimaryButton } from "../../atoms/button/PrimaryButton";
 
 type Props = {
   user: User | null;
   isOpen: boolean;
+  isAdmin?: boolean;
   onClose: () => void;
 };
 
 export const UserDetailModal: VFC<Props> = memo((props) => {
-  const { user, isOpen, onClose } = props;
+  const { user, isOpen, isAdmin = false, onClose } = props;
+  const onClickUpdate = () => alert();
   return (
     <Modal isOpen={isOpen} onClose={onClose} autoFocus={false} motionPreset="slideInBottom">
     <ModalOverlay />
@@ -36,6 +39,11 @@ export const UserDetailModal: VFC<Props> = memo((props) => {
           </FormControl>
         </Stack>
       </ModalBody>
+      {isAdmin && (
+        <ModalFooter>
+          <PrimaryButton onClick={onClickUpdate}>更新</PrimaryButton>
+        </ModalFooter>
+      )}
     </ModalContent>
   </Modal>
   )
