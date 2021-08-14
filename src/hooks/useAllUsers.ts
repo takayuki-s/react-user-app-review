@@ -16,6 +16,6 @@ export const useAllUsers = () => {
     }).finally(() => {
       setLoading(false);
     })
-  }, [])
+  }, [showMessage])
   return {getUsers, loading, users}
 }

@@ -1,5 +1,5 @@
 import { Box, Image, Stack, Text } from "@chakra-ui/react";
-import { VFC, memo, ReactNode } from "react";
+import { VFC, memo } from "react";
 
 type Props = {
   id: number;

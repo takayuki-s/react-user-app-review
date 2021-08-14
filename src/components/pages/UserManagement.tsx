@@ -8,12 +8,12 @@ import { UserDetailModal } from "../organisms/user/UserDetailModal";
 export const UserManagement: VFC = memo(() => {
   const {isOpen, onOpen, onClose} = useDisclosure();
   const { getUsers, users, loading } = useAllUsers();
-  useEffect(() => getUsers(), [])
+  useEffect(() => getUsers(), [getUsers])
 
   const onClickUser = useCallback((id: number) => {
     console.log(id);
     onOpen()
-  }, []);
+  }, [onOpen]);
 
   return (
     <>
