@@ -2,18 +2,23 @@ import { Center, Spinner, useDisclosure, Wrap, WrapItem } from "@chakra-ui/react
 import { useCallback } from "react";
 import { VFC, memo, useEffect } from "react";
 import { useAllUsers } from "../../hooks/useAllUsers";
+import { useSelectUser } from "../../hooks/useSelectUser";
 import { UserCard } from "../organisms/user/UserCard";
 import { UserDetailModal } from "../organisms/user/UserDetailModal";
 
 export const UserManagement: VFC = memo(() => {
   const {isOpen, onOpen, onClose} = useDisclosure();
   const { getUsers, users, loading } = useAllUsers();
+  const { onSelectUser, selectedUser } = useSelectUser();
+  console.log(selectedUser);
+
   useEffect(() => getUsers(), [getUsers])
 
   const onClickUser = useCallback((id: number) => {
     console.log(id);
+    onSelectUser({ id, users })
     onOpen()
-  }, [onOpen]);
+  }, [onOpen, onSelectUser, users]);
 
   return (
     <>
