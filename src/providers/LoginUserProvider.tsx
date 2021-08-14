@@ -1,12 +1,12 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { User } from "../types/api/user";
 
-type LoginUserContextType = {
+export type LoginUserContextType = {
   loginUser: User | null;
   setLoginUser: Dispatch<SetStateAction<User | null>>;
 }
 
-const LoginUserContext = createContext({} as LoginUserContextType);
+export const LoginUserContext = createContext({} as LoginUserContextType);
 
 export const LoginUserProvider = (props: {children: ReactNode}) => {
   const { children } = props;
