@@ -1,4 +1,4 @@
-import { Center, Flex } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
 import { VFC, memo } from "react";
 import { useQRCode } from "react-qrcodes";
 
