@@ -1,10 +1,12 @@
 import { Center } from "@chakra-ui/react";
 import { VFC, memo } from "react";
 import { useQRCode } from "react-qrcodes";
+import { useParams } from "react-router";
 
 export const Qr: VFC = memo(() => {
+  const { id } = useParams<{id: string}>();
   const [inputRef] = useQRCode({
-    text: 'https://qiita.com/hujuu/items/b12ff32f189f5ab620ca',
+    text: `${id}`,
     options: {
       level: 'H', 
       margin: 5, 
@@ -15,7 +17,10 @@ export const Qr: VFC = memo(() => {
   return (
     <>
       <Center>
-        <p>QRコード表示ページのテストです</p>
+        <p>受付者にこの画面を見せてください</p>
+      </Center>
+      <Center>
+        <p>コンパスID={id}</p>
       </Center>
       <Center>
         <canvas ref={inputRef} />

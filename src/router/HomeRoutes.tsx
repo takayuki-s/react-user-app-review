@@ -21,7 +21,7 @@ export const homeRoutes = [
     children: <Setting />
   },
   {
-    path: "/qr",
+    path: "/qr/:id",
     exact: false,
     children: <Qr />
   },
